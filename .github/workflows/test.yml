@@ -6,8 +6,8 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [macos-latest, ubuntu-latest, windows-latest]
-        ocaml-version: [ '4.10.0', '4.09.0', '4.08.1', '4.07.1' ]
+        operating-system: [macos-latest, ubuntu-latest]
+        ocaml-version: [ '4.10.0', '4.09.0', '4.08.1' ]
     steps:
     - uses: actions/checkout@v2
       with:
@@ -15,6 +15,8 @@ jobs:
     - uses: avsm/setup-ocaml@v1.0
       with:
         ocaml-version: ${{ matrix.ocaml-version }}
+    - name: OS Dependencies
+      run: opam depext -yt 
     - name: Dependencies
       run: opam install zarith alcotest -y
     - name: Build
