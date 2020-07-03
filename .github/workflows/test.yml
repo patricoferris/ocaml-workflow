@@ -1,0 +1,23 @@
+name: Numbers
+on: [push]
+jobs:
+  run:
+    name: Tests
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [macos-latest, ubuntu-latest, windows-latest]
+        ocaml-version: [ '4.10.0', '4.09.0', '4.08.1', '4.07.1', ]
+    steps:
+      - uses: actions/checkout@v2
+      with:
+        ref: trunk
+    - uses: avsm/setup-ocaml@v1.0
+      with:
+        ocaml-version: ${{ matrix.ocaml-version }}
+    - name: Dependencies
+      run: opam install zarith alcotest -y
+    - name: Build
+      run: opam exec -- dune build
+    - name: Test
+      run: opam exec -- dune runtest
