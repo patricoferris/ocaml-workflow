@@ -1,13 +1,22 @@
-OCaml Workflow: Continuous Integration with Github Actions 
+OCaml Workflow: Continuous Integration with TravisCI & Github Actions 
 --------------
 ![Test](https://github.com/patricoferris/ocaml-workflows-ci-github/workflows/Numbers/badge.svg?branch=trunk&event=push)
 
-This repostiory contains a skeleton for building a simple OCaml project that use CI support using Github actions. It uses the [Alcotest](https://github.com/mirage/alcotest)
+This repostiory contains a skeleton for building a simple OCaml project that use CI support using TravisCI and Github actions. It uses the [Alcotest](https://github.com/mirage/alcotest)
 testing framework to run unit tests over the two modules in `lib`. The project itself has one dependency, [Zarith](https://github.com/ocaml/Zarith), this is more 
 to show how having extra dependencies requires additional logic in the configuration files.
 
 An important point is that this is not an `opam` package (but could easily be turned into one by generating an opam file). Not all projects necessarily want to be 
 an `opam` package, this represents the most bare-bones of OCaml projects.
+
+
+# TravisCI 
+
+This repository makes use of [ocaml-ci-scripts](https://github.com/ocaml/ocaml-ci-scripts) to handle the complex logic of setting up many different testing environements for TravisCI. With that burden taken care of, the `.travis.yml` focuses on telling the script what kind of environments we want to test our program in.
+
+To integrate your project with TravisCI you will need to login to it using your Github account. 
+
+# Github Actions 
 
 ## How it works? 
 

@@ -1,0 +1,13 @@
+language: c
+services:
+  - docker
+install: wget https://raw.githubusercontent.com/ocaml/ocaml-travisci-skeleton/master/.travis-docker.sh
+script: bash -ex .travis-docker.sh
+env:
+  global:
+  - PINS="numberz.dev:."
+  matrix:
+  - OCAML_VERSION=4.09 DISTRO=alpine PACKAGE="numberz"
+  - OCAML_VERSION=4.08 DISTRO=alpine PACKAGE="numberz"
+  - OCAML_VERSION=4.09 DISTRO=ubuntu PACKAGE="numberz"
+  - OCAML_VERSION=4.08 DISTRO=ubuntu PACKAGE="numberz"

@@ -1,4 +1,4 @@
-open Numbers.Fact
+open Numberz.Fact
 
 let test_int () = 
   let fact1 = fact (-10) in

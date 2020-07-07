@@ -1,4 +1,4 @@
-open Numbers.Fib
+open Numberz.Fib
 
 let test_int () = 
   let fib1 = fib (-10) in
