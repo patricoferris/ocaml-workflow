@@ -4,9 +4,9 @@ synopsis:     "A small package with functions for numbers"
 maintainer:   "patricoferris <pf341@patricoferris.com>"
 authors:      "patricoferris <pf341@patricoferris.com>"
 license:      "ISC"
-doc:          "https://patricoferris.github.io/numberz/"
-homepage:     "https://github.com/patricoferris/ocaml-workflows-ci-github"
-bug-reports:  "https://github.com/patricoferris/ocaml-workflows-ci-github/issues"
+doc:          "https://patricoferris.github.io/ocaml-workflow"
+homepage:     "https://github.com/patricoferris/ocaml-workflow"
+bug-reports:  "https://github.com/patricoferris/ocaml-workflow/issues"
 
 depends: [
   "ocaml"   {>= "4.07.0"}
