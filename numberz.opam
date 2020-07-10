@@ -1,19 +1,30 @@
 opam-version: "2.0"
-version: "~dev"
-synopsis: "A small package with functions for numbers"
-maintainer: "patricoferris <patrickferris17@gmail.com>"
-authors: "patricoferris <patrickferris17@gmail.com>"
-license: "ISC"
-homepage: "https://github.com/patricoferris/ocaml-workflows-ci-github"
-bug-reports: "https://github.com/patricoferris/ocaml-workflows-ci-github/issues"
+version:      "~dev"
+synopsis:     "A small package with functions for numbers"
+maintainer:   "patricoferris <pf341@patricoferris.com>"
+authors:      "patricoferris <pf341@patricoferris.com>"
+license:      "ISC"
+doc:          "https://patricoferris.github.io/numberz/"
+homepage:     "https://github.com/patricoferris/ocaml-workflows-ci-github"
+bug-reports:  "https://github.com/patricoferris/ocaml-workflows-ci-github/issues"
+
 depends: [
   "ocaml"   {>= "4.07.0"}
   "dune"    {>= "2.0.0"}
+  "bisect_ppx" {with-test & >= "2.0.0"}
   "zarith"
   "alcotest" {with-test}
 ]
+
 build: [
   ["dune" "subst"] {pinned}
   ["dune" "build" "-p" name "-j" jobs]
   ["dune" "runtest" "-p" name] {with-test}
 ]
+
+description: """
+Numberz is a simple library with a few functions for producing 
+common number sequences - all functions are implemented for 
+standard OCaml integers and for Zarith types. In reality this 
+package is an exploration of OCaml workflows. 
+"""
